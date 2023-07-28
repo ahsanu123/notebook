@@ -29,3 +29,5 @@ first week, learning aspnet core fundamental, aspnet webapi fundametal, intro da
 > last on webapi **04. Manipulating Resource and Validating Input**  
 > last on aspnet core **08. Working With Form and Model Bindings**  
 > last on intro dapper **Finish**  
+
+note about ole db driver error: https://stackoverflow.com/questions/71857345/error-when-installing-microsoft-sql-server-2019-cannot-find-the-microsoft-ole-d
