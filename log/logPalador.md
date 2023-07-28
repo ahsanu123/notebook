@@ -23,4 +23,9 @@ Create new .net core project that will handle crud functionality for employee en
   - PUT /employees/:id edit specified employee
   - DELETE /employees/:id delete specified employee
 
-
+------
+## 28 Juli 2023
+first week, learning aspnet core fundamental, aspnet webapi fundametal, intro dapper database.
+> last on webapi **04. Manipulating Resource and Validating Input**
+> last on aspnet core **08. Working With Form and Model Bindings**
+> last on intro dapper **Finish**
