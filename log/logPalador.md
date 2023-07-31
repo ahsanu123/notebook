@@ -33,3 +33,13 @@ first week, learning aspnet core fundamental, aspnet webapi fundametal, intro da
 note about ole db driver error: 
 - https://stackoverflow.com/questions/71857345/error-when-installing-microsoft-sql-server-2019-cannot-find-the-microsoft-ole-d
 - https://stackoverflow.com/questions/12534454/how-to-connect-to-localdb
+
+## 31 juli 2023
+- untuk menambahkan **exception** saat proses _development_ dapat digunakan `usedeveloperexception();`
+- jika API yang direquest simple, dapat digunakan _one line_ dengan menggunakan minimal api, method dari `controllerbase` class
+  ```C#
+  app.mapGet("/error",
+              () => Result.Problem();
+            );
+  ```
+  
