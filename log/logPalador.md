@@ -42,4 +42,5 @@ note about ole db driver error:
               () => Result.Problem();
             );
   ```
-  
+
+  API untuk training sudah dibuat, dengan menggunakan _Dapper_ dan _Stored Procedure_ dari T-SQL dari SQL server.
