@@ -51,3 +51,69 @@ SELECT
 FROM HR.Employees
 WHERE lastname LIKE '%e%e%';
 ```
+
+## Chapter 3, Join
+### [2 Agustus 2023] Exercise 3
+Return US customers, and for each customer return the total number of orders and total quantities:
+```SQL
+USE TSQLV6;
+
+SELECT C.custid, COUNT(DISTINCT O.orderid) AS numorders, SUM(OD.qty) AS totalqty
+FROM Sales.Customers AS C
+    INNER JOIN Sales.Orders         AS O ON C.custid = O.custid
+    INNER JOIN Sales.OrderDetails   AS OD ON O.orderid = OD.orderid
+WHERE C.country = N'USA'
+GROUP BY C.custid;
+```
+### Excercicse 4
+Return customers and their orders, including customers who placed no orders
+```SQL
+USE TSQLV6;
+
+SELECT C.custid, C.companyname, O.orderid, O.orderdate
+FROM Sales.Customers AS C
+    LEFT OUTER JOIN Sales.Orders AS O
+    ON C.custid = O.custid;
+
+```
+
+### Excercise 5 
+Return customers who placed no orders
+```SQL
+USE TSQLV6;
+
+SELECT C.custid, C.companyname
+FROM Sales.Customers AS C
+    LEFT OUTER JOIN Sales.Orders AS O ON C.custid = O.custid 
+WHERE O.orderid IS NULL;
+
+```
+
+### Excercise 6 
+
+Return Customer With orders placed on February 12, 2022, along with their orders
+```SQL
+SELECT C.custid, C.companyname, O.orderid, O.orderdate
+FROM Sales.Customers AS C 
+    INNER JOIN Sales.Orders AS O ON C.custid = O.custid
+
+WHERE O.orderdate = '20220212';
+```
+
+### Excercise 9 
+Return all customers, and for each return a Yes/No value depending on whether the customer placed orders on February 12, 2022:
+
+```SQL
+USE TSQLV6;
+
+SELECT C.custid, C.companyname, 
+    CASE
+        WHEN O.orderid IS NOT NULL 
+            THEN 'YES'
+        ELSE 'NO' 
+    END AS HasAnOrders
+FROM Sales.Customers AS C
+LEFT OUTER JOIN Sales.Orders AS O 
+    ON  O.custid = C.custid 
+    AND O.orderdate = '20220212';
+```
