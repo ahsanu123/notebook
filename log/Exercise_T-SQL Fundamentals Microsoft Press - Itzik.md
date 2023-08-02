@@ -117,3 +117,18 @@ LEFT OUTER JOIN Sales.Orders AS O
     ON  O.custid = C.custid 
     AND O.orderdate = '20220212';
 ```
+## Chapter 4, Sub Queris
+### Exercise 3
+
+```SQL
+USE TSQLV6;
+
+SELECT H.empid, H.firstname, H.lastname
+FROM HR.Employees AS H
+WHERE H.empid NOT IN 
+(
+    SELECT O.empid
+    FROM Sales.Orders AS O
+    where O.orderdate > '20220501'
+);
+```
