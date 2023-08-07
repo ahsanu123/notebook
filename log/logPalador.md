@@ -44,3 +44,15 @@ note about ole db driver error:
   ```
 
   API untuk training sudah dibuat, dengan menggunakan _Dapper_ dan _Stored Procedure_ dari T-SQL dari SQL server.
+
+
+## 7 Agustus 2023
+projek CRUD sudah diganti menggunakan dapper dan hanya memberikan backend saja(tanpa UI).
+dari masukan yang didapatkan, 
+ - `program.cs` harus dipahami perbarisnya
+ - database yang telah dipelajari masih sangat kurang,
+ - umpamakan penggunaan backend dengan sebuah UI
+ - gunakan dokumentasi dari microsoft untuk mempelajari setiap class, method, dan properties dari program yang digunakan
+ - pelajari build system dari ASP.NET (penggunaan *.json, environtment variable, dll)
+ - autentifikasi, dan authorisasi yang telah dipelajari masih sangat basic, dan tidak benar" paham.
+
