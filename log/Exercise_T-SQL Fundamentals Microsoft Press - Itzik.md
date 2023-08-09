@@ -132,3 +132,34 @@ WHERE H.empid NOT IN
     where O.orderdate > '20220501'
 );
 ```
+
+## Chapter 5, Table Expression
+### [9 Agustus 2023] Note
+select growth of `customer` from previous year compared to this year.
+```SQL
+USE TSQLV6;
+
+SELECT 
+    Cur.orderyear   AS currentYear,
+    Prv.orderyear   AS prevYear,
+    Cur.numcust     AS curentnumcust,
+    Prv.numcust     AS prevnumcust,
+    Cur.numcust - Prv.numcust AS growth
+FROM
+(
+    SELECT  YEAR(orderdate) AS orderyear, 
+            COUNT(DISTINCT custid) AS numcust
+    FROM    Sales.Orders
+    GROUP BY YEAR(orderdate)
+) AS Cur 
+
+LEFT OUTER JOIN 
+(
+    SELECT  YEAR(orderdate) AS orderyear, 
+            COUNT(DISTINCT custid) AS numcust 
+    FROM Sales.Orders 
+    GROUP BY YEAR(orderdate) 
+) AS Prv 
+
+ON Cur.orderyear = Prv.orderyear + 1;
+```
