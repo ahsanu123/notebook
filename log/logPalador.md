@@ -56,3 +56,8 @@ dari masukan yang didapatkan,
  - pelajari build system dari ASP.NET (penggunaan *.json, environtment variable, dll)
  - autentifikasi, dan authorisasi yang telah dipelajari masih sangat basic, dan tidak benar" paham.
 
+## 9 agustus 2023
+karena pemahan SQL masih sangat basic, diberikan course dari pluralsight 
+
+  - https://app.pluralsight.com/library/courses/introduction-to-sql/table-of-contents
+  - https://app.pluralsight.com/library/courses/sql-server-database-programming-stored-procedures/table-of-contents
