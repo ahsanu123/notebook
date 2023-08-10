@@ -169,10 +169,12 @@ ON Cur.orderyear = Prv.orderyear + 1;
  - untuk membuat view dapat digunakan `CREATE OR ALTER VIEW namedatabase`
  - secara default sql dapat mengakses dan merubah atau pun menambahkan data melalui view, **namun** hal ini tidak disarankan karena, jika mengubah atau menambahkan ke tabel **yg tidak sesuai filter** maka tidak akan tertampil di view.
  - untuk membatasi penambahan maupun perubahan di view dapat digunakan `WITCH CHECK OPTION` diakhir query
- - secara default, colom dari tabel asli di view dapat dihapus oleh sql, sehingga ketika view dieksekusi kembali dapat menyebabkan error, untuk membatasi penghapusan colom pada tabel asal, dapat digunakan `WITH SCHEMABINGING`.
+ - secara default, colom dari tabel asli diview dapat dihapus oleh sql, sehingga ketika view dieksekusi kembali dapat menyebabkan error, untuk membatasi penghapusan colom pada tabel asal, dapat digunakan `WITH SCHEMABINDING`.
  - untuk menghapus view dapat digunakan `DELETE VIEW viewname`
 
-
+----
+ - `@@identity` pada T-SQL akan return(mengembalikan) value `IDENTITY/autoincrement` terakhir yang dimasukan ke tabel pada _session_ tersebut, namun jika session tersebut diakhiri dan `@@identity` dipanggil return valuenya akan `NULL`.
+ - untuk mendapatkan **identity** terakhir tanpa memedulikan session dapat digunakan fungsi `IDENT_CURRENT(_namatable_)` contoh `IDENT_CURRENT(N'dbo.table1')`.
 
 
 
