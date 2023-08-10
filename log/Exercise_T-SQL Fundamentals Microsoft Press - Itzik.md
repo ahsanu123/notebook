@@ -163,3 +163,18 @@ LEFT OUTER JOIN
 
 ON Cur.orderyear = Prv.orderyear + 1;
 ```
+
+### [10 Agustus 2023] Note `View`
+ - View digunakan untuk menampilkan queri dari table dengan filter tertentu (seperti negara asal, dll)
+ - untuk membuat view dapat digunakan `CREATE OR ALTER VIEW namedatabase`
+ - secara default sql dapat mengakses dan merubah atau pun menambahkan data melalui view, **namun** hal ini tidak disarankan karena, jika mengubah atau menambahkan ke tabel **yg tidak sesuai filter** maka tidak akan tertampil di view.
+ - untuk membatasi penambahan maupun perubahan di view dapat digunakan `WITCH CHECK OPTION` diakhir query
+ - secara default, colom dari tabel asli di view dapat dihapus oleh sql, sehingga ketika view dieksekusi kembali dapat menyebabkan error, untuk membatasi penghapusan colom pada tabel asal, dapat digunakan `WITH SCHEMABINGING`.
+ - untuk menghapus view dapat digunakan `DELETE VIEW viewname`
+
+
+
+
+
+
+
