@@ -61,3 +61,13 @@ karena pemahan SQL masih sangat basic, diberikan course dari pluralsight
 
   - https://app.pluralsight.com/library/courses/introduction-to-sql/table-of-contents
   - https://app.pluralsight.com/library/courses/sql-server-database-programming-stored-procedures/table-of-contents
+
+## 11 Agustus 2023, Training Palador Phase 2
+
+- React Big Picture: https://app.pluralsight.com/library/courses/react-big-picture/table-of-contents
+- React Basic: https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
+- React with Typescript: https://app.pluralsight.com/library/courses/react-apps-typescript-building/table-of-contents
+- Mobx: https://mobx.js.org/react-integration.html
+- Project `Create new project that will handle crud functionality for employee entity. The Api will be the one that is created using .net core.`
+
+
