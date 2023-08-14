@@ -83,3 +83,9 @@ pemahaman yang didapat dari SO: https://security.stackexchange.com/questions/256
 ### referensi UI 
 ![1aba1bf763237b0ad08614a884ff05c3](https://github.com/ahsanu123/learnNote/assets/81602442/e67abbfe-9ccc-4485-b938-c2182891b735)
 
+## 14 Agustus 2023
+###  Error: Cross Origin Request Blocked
+`Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://localhost:7099/Employee. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 200.`
+ref: https://code-maze.com/enabling-cors-in-asp-net-core/
+
+error ini terjadi karena **service** CORS belum diaktifkan **dan** mungkin jika menggunakan authentifikasi, harus ditambahkan atribut `[EnableCors("corsName")]` pada setiap class controller yang direquest
