@@ -161,7 +161,7 @@ observable diawasi oleh observer dibagi menjari 3: autorun, reaction, dan when
  - **Inject** --> membuat bind **_HOC_** dr variable observable ke react component 
  - **Provider** --> menghubungkan observable dr inject ke variable/class tersebut
 
-
+10 minutes guide: https://mobx.js.org/getting-started
 
 
 
