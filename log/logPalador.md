@@ -172,7 +172,69 @@ observable diawasi oleh observer dibagi menjari 3: autorun, reaction, dan when
 
 ### note tentang **Observable**
 terdapat beberapa tipe observable: observable.deep(atau observable saja), observable.shallow, observable.ref, observable.struct. **_penjelasan singkat lihat gambar_**
-
+ - @observable, sama dengan @observable.deep
+ - @observable.shallow = hanya memantau top level dari object (seperti array dsb)
+ - @observable.ref = tidak memantau struktur dari object (seperti array) dan hanya melihat perubahan nilai
+ - @observable.struct = hanya memantau pada struktunya dan akan memanggil reaction ketika terjadi perubahan nilai pada strukturnya, jika berubah namun nilai sama, reaction tidak akan dipanggil.
 ![image](https://github.com/ahsanu123/learnNote/assets/81602442/af1ad4c7-a7d0-4c2c-8c1a-a474a1c90140)
 
+### note tentang `<Provider />` MobX
+pada top leve, `<Provider/>` digunakan untuk memastikan koneksi antara variable _observable_ dan fungsi _inject_. secara internal **Providerr** menggunakan react context untuk menyebarkan _variable observable_ melalui decorator `Inject()`
 
+### note tentang `Babel transpiller`
+jika transpiller (babel dsb) belum support decorator, dapat menggunakan API dari MobX.
+ - decorate() --> decorate(target, decorator-object)
+ ```typescript
+import { action, computed, decorate, observable } from 'mobx';
+class BookSearchStore {
+term = 'javascript';
+status = '';
+results = [];
+totalCount = 0;
+get isEmpty() {
+return this.results.length === 0;
+}
+setTerm(value) {
+this.term = value;
+}
+async search() {}
+}
+decorate(BookSearchStore, {
+term: observable,
+status: observable,
+results: observable.shallow,
+totalCount: observable,
+isEmpty: computed,
+setTerm: action.bound,
+search: action.bound,
+});
+decorate(target, decorator-object)
+``` 
+ 
+ - observable() --> observable(target, decorator, option) dimana option adalah _debug friendly option_ dapat digunakan untuk memberikan nama dan pengaturan seperti **_deep_** yang berguna saat debuging, seperti penggunaan saat console.log
+ - untuk **menambahkan observable** saat runtime dapat digunakan `extendObservable` --> extendObservable(target, object, decorator)
+```typescript
+import { observable, action, extendObservable } from 'mobx';
+const cart = observable({
+/* ... */
+});
+function applyFestiveOffer(cart) {
+extendObservable(
+cart,
+{
+coupons: ['OFF50FORU'],
+get hasCoupons() {
+return this.coupons && this.coupons.length > 0;
+},
+addCoupon(coupon) {
+this.coupons.push(coupon);
+},
+},
+{
+coupons: observable.shallow,
+addCoupon: action,
+},
+);
+}
+extendObservable(target, object, decorators)
+```
