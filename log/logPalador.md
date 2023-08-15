@@ -89,3 +89,80 @@ pemahaman yang didapat dari SO: https://security.stackexchange.com/questions/256
 ref: https://code-maze.com/enabling-cors-in-asp-net-core/
 
 error ini terjadi karena **service** CORS belum diaktifkan **dan** mungkin jika menggunakan authentifikasi, harus ditambahkan atribut `[EnableCors("corsName")]` pada setiap class controller yang direquest
+
+
+  ## 15 Agustus 2023
+  ### note
+  penggunaan fungsi seperti `fetch` maupun `axios` tidak sama dengan javascript, object harus memiliki struktur lengkap (membutuhkan Interface atau class). 
+  **lebih dari 4 jam mempelajari assert(casting saat compile) di typescript**
+  terakhir dapat mengubah response dari server ke objek seperti berikut:
+```typescript
+interface IEmployeDataStructure {
+  empid: number,
+  firstname: string,
+  lastname: string,
+  title: string,
+  titleofcourtesy: string,
+  birthdate: Date,
+  hiredate: Date,
+  address: string,
+  city: string,
+  region: string,
+  postalcode: string,
+  country: string,
+  phone: string
+}
+
+class EmployeeDataStructure implements IEmployeDataStructure {
+  empid: number = 0;
+  firstname: string = "";
+  lastname: string = "";
+  title: string = "";
+  titleofcourtesy: string = "";
+  birthdate: Date = new Date();
+  hiredate: Date = new Date();
+  address: string = "";
+  city: string = "";
+  region: string = "";
+  postalcode: string = "";
+  country: string = "";
+  phone: string = "";
+}
+
+.......
+async function DoFetch(): Promise<IEmployeDataStructure[]> {
+
+  var response = fetch('https://localhost:7099/Employee')
+    .then(res => res.json())
+    .then((empArr: Array<EmployeeDataStructure>) => empArr.map(
+      (emp) => Object.assign(new EmployeeDataStructure(), emp)
+    ))
+  return response;
+}
+........
+  useEffect(() => {
+    DoFetch().then((emp: Array<EmployeeDataStructure>) => {
+      SetEmployeeData(emp);
+    });
+  });
+
+```
+
+
+### note tentang MobX
+observable diawasi oleh observer dibagi menjari 3: autorun, reaction, dan when
+
+ - observable --> mengawasi variable dan memberi notifikasi ke observer jika variable berubah.
+ - autorun --> memiliki sebuah input fungsi, jika dalam autorun memiliki variable(observable), dan variable tersebut berubah, maka action akan di re-execute
+ - reaction  --> memiliki 2 buah argument (_ValueTracked, Callback_), ketika _ValueTracked_ berubah callback akan dipanggil, **berbeda dengan autorun kita bisa memilih tracked variable**
+ - when --> memiliki 2 argument (_Predicate, Callback_) predicate mengharapkan return value boolean, jika _predicate_ bernilai **true** maka side-effect atau callback akan dipanggil, berbeda dengan autorun maupun reaction, setelah callback dari when dipanggil, when otomatis dibuang.
+ - action --> untuk mengubah variable observable **_sangat disarankan menggunakan action_**, untuk memaksa pengubahan variable menggunakan **_action_** dapat digunakan `Configure({enforceaction: true})`
+ - **HOC(High Order Component)** --> wrap react component to automaticly update on change observable state
+ - **Inject** --> membuat bind **_HOC_** dr variable observable ke react component 
+ - **Provider** --> menghubungkan observable dr inject ke variable/class tersebut
+
+
+
+
+
+
