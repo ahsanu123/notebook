@@ -238,3 +238,31 @@ addCoupon: action,
 }
 extendObservable(target, object, decorators)
 ```
+ ## 15 Agustus 2023
+### note penggunaan `parameter` di typescript yang belum familiar
+di typescript argument pada fungsi harus diberi tipe (seperti di c/c++), namun **_mungkin_**(pemikiran sendiri), ketika argument adalah instance dari sebuah class tertentu, penulisan argument harus menggunakan object dari sebuah class yang memiliki nama yang sama `{todoLis}:{todoList: TodoList}`
+```typescript
+import { TodoList, Todo } from "../model/TodoList"
+export const TodoListView = observer(({ todoList }: { todoList: TodoList }) => (
+  <div>
+    <ul>
+      {todoList.todos.map(todo => (
+        <TodoView todo={todo} key={todo.id} />
+      ))}
+    </ul>
+    Tasks left: {todoList.unfinishedTodoCount}
+  </div>
+));
+
+const TodoView = observer(({ todo }: { todo: Todo }) => (
+  <li>
+    <input
+      type="checkbox"
+      checked={todo.finished}
+      onClick={() => todo.toggle()}
+    />
+    {todo.title}
+  </li>
+));
+
+```  
