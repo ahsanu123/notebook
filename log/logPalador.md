@@ -176,6 +176,7 @@ terdapat beberapa tipe observable: observable.deep(atau observable saja), observ
  - @observable.shallow = hanya memantau top level dari object (seperti array dsb)
  - @observable.ref = tidak memantau struktur dari object (seperti array) dan hanya melihat perubahan nilai
  - @observable.struct = hanya memantau pada struktunya dan akan memanggil reaction ketika terjadi perubahan nilai pada strukturnya, jika berubah namun nilai sama, reaction tidak akan dipanggil.
+
 ![image](https://github.com/ahsanu123/learnNote/assets/81602442/af1ad4c7-a7d0-4c2c-8c1a-a474a1c90140)
 
 ### note tentang `<Provider />` MobX
