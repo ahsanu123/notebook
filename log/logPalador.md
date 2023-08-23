@@ -241,7 +241,7 @@ extendObservable(target, object, decorators)
 ```
  ## 15 Agustus 2023
 ### note penggunaan `parameter` di typescript yang belum familiar
-di typescript argument pada fungsi harus diberi tipe (seperti di c/c++), namun **_mungkin_**(pemikiran sendiri), ketika argument adalah instance dari sebuah class tertentu, penulisan argument harus menggunakan object dari sebuah class yang memiliki nama yang sama `{todoLis}:{todoList: TodoList}`
+di typescript argument pada fungsi harus diberi tipe (seperti di c/c++), namun **_mungkin_**(pemikiran sendiri), ketika argument adalah instance dari sebuah class tertentu, penulisan argument harus menggunakan object dari sebuah class yang memiliki nama yang sama `{todoList}:{todoList: TodoList}`
 ```typescript
 import { TodoList, Todo } from "../model/TodoList"
 export const TodoListView = observer(({ todoList }: { todoList: TodoList }) => (
@@ -266,4 +266,14 @@ const TodoView = observer(({ todo }: { todo: Todo }) => (
   </li>
 ));
 
-```  
+```
+
+## 23 Agustus 2023
+### Note React Hook
+1. **useState** --> manage state (memorize field like button/input in component)
+2. **useReducer** --> manage complex state instead of using multiple usestate
+3. **usecontext** --> pass value deep to the tree (need a provider on top level tree)
+4. **useeffect** --> synchronize component to external system, like API, etc
+5. **usetransition** --> keep component responsive on middleof **_re-render_**, ex: when open tab with delay (or maybe animation) user can change to other tab without need to wait animation or delay to complete re-render
+
+note: dispatch --> mengirim/menyuruh/mengurus
