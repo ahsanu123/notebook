@@ -38,6 +38,59 @@ On the initial render, useMemo returns the result of calling calculateValue with
 
 During next renders, it will either return an already stored value from the last render (if the dependencies haven’t changed), or call calculateValue again, and return the result that calculateValue has returned.
 
+<details>
+ <summary> Pemahaman sendiri tentang useMemo </summary>
+ useMemo memiliki 2 parameter `calculateValue dan Dependencies` ketika `todos` atau `tab` berubah (lihat kode dibawah ini), use memo akan menggunakan fungsi pada argument pertama untuk menghitung ulang/re-calculate `visibleTodos` karena salah satu dependencies berubah, disini theme tidak digunakan sebagai dependencies, sehingga ketika `theme` berubah argument pertama tidak akan di re-execute, **namun** ketika `theme` dimasukan ke **array** dependencies useMemo akan tetap melakukan re-calculate walaupun data tidak terpengaruh oleh "theme".
+
+ ### memo
+ memo lets you skip re-rendering a component when its props are unchanged.
+ ```typescript
+const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
+```
+ 
+ ```typescript
+ function TodoList({ todos, theme, tab }: { todos: TodosModel[], theme: string, tab: string }) {
+  const visibleTodos = useMemo(
+    () => filterTodos(todos, tab),
+    [todos, tab]
+  );
+
+  return (
+    <div className={theme} >
+      <List items={visibleTodos} />
+    </div>
+  );
+}
+
+const MemoList = ({ items }: { items: TodosModel[] }) => {
+  console.log('[ARTIFICIALLY SLOW] Rendering <List /> with ' + items.length + ' items');
+  let startTime = performance.now();
+  while (performance.now() - startTime < 500) {
+    // Do nothing for 500 ms to emulate extremely slow code
+  }
+
+  return (
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>
+          {item.completed ?
+            <s>{item.text}</s> :
+            item.text
+          }
+        </li>
+      ))}
+    </ul>
+  );
+
+}
+
+const List = memo(MemoList);
+
+
+ ```
+</details>
+
+
 ### useReducer
 useReducer is a React Hook that lets you add a reducer to your component.
 ```typescript
