@@ -277,3 +277,42 @@ const TodoView = observer(({ todo }: { todo: Todo }) => (
 5. **usetransition** --> keep component responsive on middleof **_re-render_**, ex: when open tab with delay (or maybe animation) user can change to other tab without need to wait animation or delay to complete re-render
 
 note: dispatch --> mengirim/menyuruh/mengurus
+
+## 28 Agustus 2023
+### Konversi JSON ke Map jika key tidak sama dengan employee id 
+
+listing to convert JSON employee with id _mencar-mencar_
+```typescript
+const resjson = `[{"empid":1,"firstname":"Sara","lastname":"Davis","title":"CEO","titleofcourtesy":"-","birthdate":"1968-12-08T00:00:00","hiredate":"2020-05-01T00:00:00","address":"7890 - 20th Ave. E., Apt. 2A","city":"Seattle","region":"WA","postalcode":"10003","country":"USA","phone":"206 5550101"},{"empid":2,"firstname":"Doni","lastname":"Funk","title":"Vice President, Sales","titleofcourtesy":"-","birthdate":"1972-02-19T00:00:00","hiredate":"2020-08-14T00:00:00","address":"9012 W. Capital Way","city":"Tacoma","region":"WA","postalcode":"10001","country":"USA","phone":"206 5550100"},{"empid":3,"firstname":"Judy","lastname":"Lewis","title":"Sales Manager","titleofcourtesy":"-","birthdate":"1983-08-30T00:00:00","hiredate":"2020-04-01T00:00:00","address":"2345 Moss Bay Blvd.","city":"Kirkland","region":"WA","postalcode":"10007","country":"USA","phone":"206 5550103"},{"empid":4,"firstname":"Yael","lastname":"Peled","title":"Sales Representative","titleofcourtesy":"-","birthdate":"1957-09-19T00:00:00","hiredate":"2021-05-03T00:00:00","address":"5678 Old Redmond Rd.","city":"Redmond","region":"WA","postalcode":"10009","country":"USA","phone":"206 5550104"},{"empid":5,"firstname":"Sven","lastname":"Mortensen","title":"Sales Manager","titleofcourtesy":"-","birthdate":"1975-03-04T00:00:00","hiredate":"2021-10-17T00:00:00","address":"8901 Garrett Hill","city":"London","region":"NYC","postalcode":"10004","country":"UK","phone":"71 2345678"},{"empid":6,"firstname":"Paul","lastname":"Suurs","title":"Sales Representative","titleofcourtesy":"-","birthdate":"1983-07-02T00:00:00","hiredate":"2021-10-17T00:00:00","address":"3456 Coventry House, Miner Rd.","city":"London","region":"NYC","postalcode":"10005","country":"UK","phone":"71 3456789"},{"empid":7,"firstname":"Russell","lastname":"King","title":"Sales Representative","titleofcourtesy":"-","birthdate":"1980-05-29T00:00:00","hiredate":"2022-01-02T00:00:00","address":"6789 Edgeham Hollow, Winchester Way","city":"London","region":"NYC","postalcode":"10002","country":"UK","phone":"71 1234567"},{"empid":8,"firstname":"Maria","lastname":"Cameron","title":"Sales Representative","titleofcourtesy":"-","birthdate":"1978-01-09T00:00:00","hiredate":"2022-03-05T00:00:00","address":"4567 - 11th Ave. N.E.","city":"Seattle","region":"WA","postalcode":"10006","country":"USA","phone":"206 5550102"},{"empid":9,"firstname":"Patricia","lastname":"Doyle","title":"Sales Representative","titleofcourtesy":"-","birthdate":"1986-01-27T00:00:00","hiredate":"2022-11-15T00:00:00","address":"1234 Houndstooth Rd.","city":"London","region":"NYC","postalcode":"10008","country":"UK","phone":"71 4567890"},{"empid":30,"firstname":"Marlin","lastname":"Gonzalez","title":"Mr","titleofcourtesy":"-","birthdate":"2001-08-02T00:00:00","hiredate":"2010-01-20T00:00:00","address":"P Shermen Jalan Wallaby 42 Sydney","city":"Sydney","region":"Central Park","postalcode":"50192","country":"Australia","phone":"9019 19212"},{"empid":43,"firstname":"Stacy","lastname":"Knight","title":"Ms","titleofcourtesy":"-","birthdate":"2001-02-02T00:00:00","hiredate":"2023-02-03T00:00:00","address":"Restaurant street 7","city":"kobe","region":"NYC","postalcode":"4092","country":"UK","phone":"14061"},{"empid":45,"firstname":"Ellen","lastname":"Castro","title":"Ms","titleofcourtesy":"-","birthdate":"2022-02-02T00:00:00","hiredate":"2023-08-19T00:00:00","address":"Lab street 90 ","city":"manhattan","region":"NYC","postalcode":"89102","country":"UK","phone":"082812"},{"empid":50,"firstname":"Minnie","lastname":"Davidson","title":"Ms","titleofcourtesy":"-","birthdate":"1993-02-12T00:00:00","hiredate":"2013-03-12T00:00:00","address":"Central Park street 7","city":"Manchester","region":"NYC","postalcode":"140923","country":"UK","phone":"14061 92"},{"empid":52,"firstname":"Sama Binti","lastname":"Abdulhadi","title":"-","titleofcourtesy":"-","birthdate":"2001-06-07T00:00:00","hiredate":"2023-07-30T00:00:00","address":"Montenegros","city":"Cetral Sydney","region":"West Sydney","postalcode":"09121","country":"Australia","phone":"988123 192"}]`
+
+interface User{
+    empid: number,
+    firstname: string ,
+    lastname: string ,
+    title: string ,
+    titleofcourtesy: string ,
+    birthdate: string,
+    hiredate: string,
+    address: string ,
+    city: string,
+    region: string,
+    postalcode: string,
+    country: string,
+    phone: string ,
+
+}
+
+let tupple: [number, User][] = []
+
+let resUser: User[] = JSON.parse(resjson)
+
+console.log(tupple.length)
+resUser.map(user => tupple.push([user.empid, user]))
+console.log(tupple.length)
+
+let mapTupple = new Map(tupple);
+
+console.log(mapTupple.get(5))
+
+  
+```
