@@ -336,3 +336,9 @@ console.log(mapTupple.get(5))
   4. JSON
   5. Fetch
   6. Advance Classes
+**A statement is a piece of code that can be executed and performs some kind of action**
+**An expression is a piece of code that can be evaluated to produce a value**
+
+
+
+
