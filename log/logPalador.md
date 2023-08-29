@@ -330,15 +330,64 @@ console.log(mapTupple.get(5))
   6. Map ✔️
  
 - 29 Agustus 2023
-  1. Arrow Function
+  1. Arrow Function ✔️
   2. Destruction
-  3. Array Of Object
-  4. JSON
-  5. Fetch
+  3. Array Of Object ✔️
+  4. JSON 
+  5. Fetch 
   6. Advance Classes  
 **A statement is a piece of code that can be executed and performs some kind of action**  
 **An expression is a piece of code that can be evaluated to produce a value**  
 
+### Penggunaan `Suspense` dan `Lazy`
+jika menggunakan komponen asli dari `Calenda.js`, gunakan code sebagai berikut.
+```typescript
+const LazyCalendar = lazy(() => import("./Calendar.js"))
+```
+
+```typescript
+import React, { lazy, Suspense, useState } from "react";
+import "./styles.css";
+
+const module = {
+  default: () => <div>Big Calendar</div>
+};
+
+function getPromise() {
+  return new Promise((resolve) => setTimeout(() => resolve(module), 3000));
+}
+
+const LazyCalendar = lazy(getPromise);
+
+function CalendarWrapper() {
+  const [isOn, setIsOn] = useState(false);
+  return isOn ? (
+    <LazyCalendar />
+  ) : (
+    <div>
+      <button onClick={() => setIsOn(true)}>Show Calendar</button>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="App">
+      <main>Main App</main>
+      <aside>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CalendarWrapper />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <CalendarWrapper />
+        </Suspense>
+      </aside>
+    </div>
+  );
+}
+
+
+```
 
 
 
