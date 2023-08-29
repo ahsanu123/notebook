@@ -316,3 +316,23 @@ console.log(mapTupple.get(5))
 
   
 ```
+
+## 29 Agustus 2023
+### Javascript/Typescript Learning List
+![image](https://github.com/ahsanu123/learnNote/assets/81602442/51498341-fb6b-4daf-927d-9852e889ea60)
+
+- 28 Agustus 2023
+  1. Asynchronous ✔️
+  2. Promise ✔️
+  3. Nullish Coallesching ✔️
+  4. Reduce ✔️
+  5. Callback ✔️
+  6. Map ✔️
+ 
+- 29 Agustus 2023
+  1. Arrow Function
+  2. Destruction
+  3. Array Of Object
+  4. JSON
+  5. Fetch
+  6. Advance Classes
