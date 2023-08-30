@@ -538,6 +538,7 @@ function App() {
 
 ### React suspense first ok
 referensi: https://blog.openreplay.com/data-fetching-with-suspense-in-react/
+note: kenapa react menunggu variable yang memberikan `throw` pada `return` nya????
 ```typescript
 export interface User {
   id: number,
