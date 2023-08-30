@@ -444,3 +444,94 @@ export default fetchData;
 ```
 ### baca rekomendasi react suspense dari team
 link: https://blog.logrocket.com/async-rendering-react-suspense/
+
+example code dari link diatas, yang dikonversi ke typescript
+
+```typescript
+import { fetchShows } from "../fetchShows";
+import * as Styles from "./styles";
+
+const resource = fetchShows();
+
+const formatScore = (number: number): number => {
+  return Math.round(number * 100);
+};
+
+const Shows = (): JSX.Element => {
+  const shows = resource.read();
+
+  return (
+    <Styles.Root>
+      <Styles.Container>
+        {shows.map((show, index) => (
+          <Styles.ShowWrapper key={index}>
+            <Styles.ImageWrapper>
+              <img
+                src={show.show.image ? show.show.image.original : ""}
+                alt="Show Poster"
+              />
+            </Styles.ImageWrapper>
+            <Styles.TextWrapper>
+              <Styles.Title>{show.show.name}</Styles.Title>
+              <Styles.Subtitle>
+                Score: {formatScore(show.score)}
+              </Styles.Subtitle>
+              <Styles.Subtitle>Status: {show.show.status}</Styles.Subtitle>
+              <Styles.Subtitle>
+                Network: {show.show.network ? show.show.network.name : "N/A"}
+              </Styles.Subtitle>
+            </Styles.TextWrapper>
+          </Styles.ShowWrapper>
+        ))}
+      </Styles.Container>
+    </Styles.Root>
+  );
+};
+
+export default Shows;
+
+import axios from "axios";
+
+export const fetchShows = () => {
+  let status = "pending";
+  let result: any;
+  let suspender = axios(`https://api.tvmaze.com/search/shows?q=heist`).then(
+    (r) => {
+      status = "success";
+      result = r.data;
+    },
+    (e) => {
+      status = "error";
+      result = e;
+    }
+  );
+
+  return {
+    read() {
+      if (status === "pending") {
+        throw suspender;
+      } else if (status === "error") {
+        throw result;
+      } else if (status === "success") {
+        return result;
+      }
+    },
+  };
+};
+
+
+function App() {
+ return (
+   <div className="App">
+     <header className="App-header">
+       <h1 className="App-title">React Suspense Demo</h1>
+     </header>
+     <ErrorBoundary fallback={<p>Could not fetch TV shows.</p>}>
+       <Suspense fallback={<p>loading...</p>}>
+         <Shows />
+       </Suspense>
+     </ErrorBoundary>
+   </div>
+ );
+}
+```
