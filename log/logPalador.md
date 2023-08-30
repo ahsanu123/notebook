@@ -538,7 +538,7 @@ function App() {
 
 ### React suspense first ok
 referensi: https://blog.openreplay.com/data-fetching-with-suspense-in-react/
-```typesript
+```typescript
 export interface User {
   id: number,
   name: string,
