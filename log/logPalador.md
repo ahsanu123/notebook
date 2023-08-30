@@ -331,11 +331,16 @@ console.log(mapTupple.get(5))
  
 - 29 Agustus 2023
   1. Arrow Function ✔️
-  2. Destruction
+  2. Destruction ✔️
   3. Array Of Object ✔️
-  4. JSON 
-  5. Fetch 
-  6. Advance Classes  
+  4. Advance Classes ✅
+
+- 30 Agustus 2023
+  1. JSON 
+  2. Fetch
+  3. Lexical Scope
+  4. Dom Selection
+   
 **A statement is a piece of code that can be executed and performs some kind of action**  
 **An expression is a piece of code that can be evaluated to produce a value**  
 
