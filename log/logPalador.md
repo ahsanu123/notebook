@@ -535,3 +535,118 @@ function App() {
  );
 }
 ```
+
+### React suspense first ok
+referensi: https://blog.openreplay.com/data-fetching-with-suspense-in-react/
+```typesript
+export interface User {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  address: Address,
+  company: Company,
+
+}
+interface Address {
+  street: string,
+  suite: string,
+  city: string,
+  zipcode: string,
+  geo: Geo,
+  phone: string,
+  website: string,
+}
+interface Geo {
+  lat: string,
+  lng: string,
+}
+interface Company {
+  name: string,
+  catchPhrase: string,
+  bs: string,
+}
+
+async function stall(stallTime = 3000) {
+  await new Promise(resolve => setTimeout(resolve, stallTime));
+}
+
+async function fetchUser(): Promise<User> {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users/3")
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+  await stall();
+  return response;
+}
+
+function dataFetch() {
+  const fetchData = fetchUser();
+  return wrapPromise(fetchData);
+}
+
+
+const wrapPromise = <T>(promise: Promise<T>) => {
+  let status = "pending";
+  let result: T;
+  let suspend = promise.then(
+    (res) => {
+      status = "success";
+      result = res;
+    },
+    (err) => {
+      status = "error";
+      result = err;
+    }
+  );
+
+  const read = () => {
+    if (status === "pending") {
+      console.log("pending")
+      throw suspend;
+    } else if (status === "error") {
+      console.log("error")
+      throw result;
+    } else if (status === "success") {
+      return result;
+    }
+  }
+
+  return { read };
+};
+
+
+export default dataFetch;
+
+
+// profile.tsx
+import React from "react";
+import dataFetch, { User } from "./wrapPromise";
+
+const resource = dataFetch();
+
+const UserProfile = () => {
+  const user: undefined | User = resource.read();
+  if (user !== undefined) {
+    return (
+      <div className="container">
+        <h1 className="title">{user.name}</h1>
+        <ul>
+          <li>username: {user.username}</li>
+          <li>phone: {user.address.phone}</li>
+          <li>email: {user.email}</li>
+        </ul>
+      </div>
+    );
+  }
+
+  else {
+    return (
+      <h2> User undefined or error </h2>
+    )
+  }
+};
+
+export default UserProfile;
+
+
+```
