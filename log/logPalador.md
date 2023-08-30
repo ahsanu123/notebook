@@ -1,3 +1,5 @@
+
+
 # Juli 2023
 ## 24 Juli 2023 
 
@@ -394,5 +396,50 @@ export default function App() {
 
 ```
 
+## 30 Agustus 2023
+### Bingung Penggunaan Suspense dan lazy
+suspense dapat auto memberi loading menggunakan component yang di _pass_ ke fallback, namun dalam case **ini** component memerlukan fetch, sehingga terdapat operasi async dan return promise, **masalahnya** untuk merubah promise menjadi variable biasa (const) masih bingung. berikut kode dari example logrocket.com yang telah diubah menjadi typescript.
 
+```typescript
+function wrapPromise<T>(promise: Promise<T>) {
+  let status: 'pending' | 'success' | 'error' = 'pending';
+  let response: T | Error;
+
+  const suspender = promise.then(
+    (res) => {
+      status = 'success';
+      response = res;
+    },
+    (err) => {
+      status = 'error';
+      response = err;
+    }
+  );
+
+  const read = () => {
+    switch (status) {
+      case 'pending':
+        throw suspender;
+      case 'error':
+        throw response;
+      default:
+        return response;
+    }
+  };
+
+  return { read };
+}
+
+export default wrapPromise;
+
+function fetchData(url: string) {
+  const promise = fetch(url)
+    .then((res) => res.json())
+    .then((res) => res.data);
+
+  return wrapPromise(promise);
+}
+
+export default fetchData;
+```
 
