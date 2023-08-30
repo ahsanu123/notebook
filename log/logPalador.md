@@ -442,4 +442,5 @@ function fetchData(url: string) {
 
 export default fetchData;
 ```
-
+### baca rekomendasi react suspense dari team
+link: https://blog.logrocket.com/async-rendering-react-suspense/
