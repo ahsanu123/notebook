@@ -1,3 +1,8 @@
+### Summary React Hook karangan Sendiri
+- Suspense: butuh throw (dan wrap promise) untuk mengetahui apakah komponen siap render
+- Lazy: akan diimport ketika perlu (promise juga)
+- useTransition: return 2 value [isPending, startTransition], ispending adalah boolean yg bernilai true jika `startTransition` Masih bekerja, startTransition memiliki prioritas yg rendah dibandingkan fungsi lain yg tidak berada dalam start transition
+
 ## 24 Agustus 2023
 ### UseTransition
 useTransition is a React Hook that lets you update the state without blocking the UI.
