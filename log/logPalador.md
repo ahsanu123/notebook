@@ -338,10 +338,10 @@ console.log(mapTupple.get(5))
   4. Advance Classes ✅
 
 - 30 Agustus 2023
-  1. JSON 
-  2. Fetch
-  3. Lexical Scope
-  4. Dom Selection
+  1. JSON ✔️
+  2. Fetch ✔️
+  3. Lexical Scope ✔️
+  4. Dom Selection ✔️
    
 **A statement is a piece of code that can be executed and performs some kind of action**  
 **An expression is a piece of code that can be evaluated to produce a value**  
@@ -671,3 +671,14 @@ export async  function getCategories() {
 }
 
 ```
+- 1 September 2023  
+  1. optional chaining
+  2. object
+  3. flow control
+  4. asynchronous logic
+  5. async/await
+  6. promise
+  7. event
+  8. module
+  9. event loop
+  
