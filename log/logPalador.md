@@ -652,3 +652,22 @@ export default UserProfile;
 
 ```
 
+## 1 September 2023
+### await pada fetch akan return `tipe` bukan `Promise`
+jika ingin menggunakan `Suspense` dan `wrapPromise` jangan gunakan **await**, karena await akan menunggu response dan mengembalikan value.
+```typescript
+// tanpa await ============================
+export function getCategories() {
+  let response = fetch('https://dummyjson.com/products/categories')
+    .then(res => res.json());
+  return wrapPromise<string[]>(response);
+}
+
+// dengan await =========================
+export async  function getCategories() {
+  let response: string[] | string = await fetch('https://dummyjson.com/products/categories')
+    .then(res => res.json());
+// response disini akan berisi string[] atau string, dan bukan promise!!!
+}
+
+```
