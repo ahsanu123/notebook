@@ -685,4 +685,6 @@ export async  function getCategories() {
 ## 6 September 2023
   1. modules ✔️  
   2. Object ✔️  
-  3. Set ✔️  
+  3. Set ✔️
+  4. Class js ✔️
+  5. FormData Web Apis ✔️
