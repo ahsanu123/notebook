@@ -681,4 +681,8 @@ export async  function getCategories() {
   7. event
   8. module
   9. event loop
-  
+
+## 6 September 2023
+  1. modules ✔️  
+  2. Object ✔️  
+  3. Set ✔️  
