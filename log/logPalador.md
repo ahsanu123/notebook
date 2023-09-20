@@ -688,3 +688,26 @@ export async  function getCategories() {
   3. Set ✔️
   4. Class js ✔️
   5. FormData Web Apis ✔️
+
+## 20 September 2023
+### Action in ASPNET is Delegates
+ref :https://www.tutorialsteacher.com/csharp/csharp-action-delegate
+pada code dibawah ini `ConfigureAppConfiguration(Action<HostBuilderContext, IconfigurationBuilder> ConfigureDelegate)`, delegate akan menerima sebuah fungsi dengan parameter seperti yg tertulis, dalam hal ini menggunakan **lambda**.
+```c#
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var root = config.Build();
+                    var keyVaultUrl = root["KeyVault:Url"];
+                    if (string.IsNullOrWhiteSpace(keyVaultUrl) == false)
+                    {
+                        config.AddAzureKeyVault(keyVaultUrl, new DefaultKeyVaultSecretManager());
+                    }
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+
+```
