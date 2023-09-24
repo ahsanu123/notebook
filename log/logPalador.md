@@ -724,6 +724,6 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 
 ---
 - CLI untuk C#: https://github.com/pierre3/PlantUmlClassDiagramGenerator  
-- command untuk generate `.puml`: `puml-gen DMC.Api puml -dir -excludePaths bin,obj,properties  -allInOne -createAssosiation`  
+- command untuk generate `.puml`: `puml-gen DMC.Api puml -dir -excludePaths bin,obj,properties  -allInOne -createAssociation`  
 
 
