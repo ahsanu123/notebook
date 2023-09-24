@@ -717,12 +717,13 @@ pada code dibawah ini `ConfigureAppConfiguration(Action<HostBuilderContext, Icon
 command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -tsvg`
 
 ---
->Entah `tplant` tidak bisa generate class diagram jika ada fungsi tanpa class, sehingga fungsi tanpa class harus dihapus
-CLI untuk Typescript: https://github.com/bafolts/tplant
-command  untuk generate `.puml`: 'tplant -p package.json --input src/**/*.ts* --output output.puml -A'
+⚠️ Entah `tplant` tidak bisa generate class diagram jika ada fungsi tanpa class, sehingga fungsi tanpa class harus dihapus
+
+- CLI untuk Typescript: https://github.com/bafolts/tplant  
+- command  untuk generate `.puml`: `tplant -p package.json --input src/**/*.ts* --output output.puml -A`  
 
 ---
-CLI untuk C#: https://github.com/pierre3/PlantUmlClassDiagramGenerator
-command untuk generate `.puml`: `puml-gen DMC.Api puml -dir -excludePaths bin,obj,properties  -allInOne -createAssosiation`
+- CLI untuk C#: https://github.com/pierre3/PlantUmlClassDiagramGenerator  
+- command untuk generate `.puml`: `puml-gen DMC.Api puml -dir -excludePaths bin,obj,properties  -allInOne -createAssosiation`  
 
 
