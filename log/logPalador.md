@@ -727,3 +727,6 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 - command untuk generate `.puml`: `puml-gen DMC.Api puml -dir -excludePaths bin,obj,properties  -allInOne -createAssociation`  
 
 
+## 25 September 2023
+- Azure Function local dev yg digunakan pada `project` menggunakan versi3
+
