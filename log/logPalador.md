@@ -720,7 +720,7 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 ⚠️ Entah `tplant` tidak bisa generate class diagram jika ada fungsi tanpa class, sehingga fungsi tanpa class harus dihapus
 
 - CLI untuk Typescript: https://github.com/bafolts/tplant  
-- command  untuk generate `.puml`: `tplant -p package.json --input src/**/*.ts* --output output.puml -A`  
+- command  untuk generate `.puml`: ```tplant -p package.json --input src/**/*.ts* --output output.puml -A``` 
 
 ---
 - CLI untuk C#: https://github.com/pierre3/PlantUmlClassDiagramGenerator  
