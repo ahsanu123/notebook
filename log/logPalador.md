@@ -729,4 +729,4 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 
 ## 25 September 2023
 - Azure Function local dev yg digunakan pada `project` menggunakan versi3
-
+- `dotenv` digunakan untuk import environment variable dari file `.env` ke process dari `node.js`
