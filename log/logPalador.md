@@ -730,3 +730,8 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 ## 25 September 2023
 - Azure Function local dev yg digunakan pada `project` menggunakan versi3
 - `dotenv` digunakan untuk import environment variable dari file `.env` ke process dari `node.js`
+- azure function repo github (node): https://github.com/Azure/azure-functions-nodejs-library
+- azure service bus (Azure Service Bus is a highly-reliable cloud messaging service from Microsoft.) github repo: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus
+- azure msal node (Azure  authentication library) github repo: https://github.com/AzureAD/microsoft-authentication-library-for-js
+- azure identity(provide Token Authentication, Token Credential from Azure active directory / AD) : https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity
+- azure keyvault (provide cloud keys, secret and certificate): https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault
