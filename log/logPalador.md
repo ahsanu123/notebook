@@ -744,3 +744,7 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 - `IEnumerable<T>` contains a single method that you must implement when implementing this interface; `GetEnumerator`, which returns an `IEnumerator<T>`
 - **Arrays in c# by default** implement IEnumerable<T> where T is the member type of array.
 - The IEnumerable<T> interface is central to LINQ. All LINQ methods are extension methods to the IEnumerable<T> interface. **That means that you can call any LINQ method on any object that implements IEnumerable<T>**. You can even create your own classes that implement IEnumerable<T>, and those classes will instantly "inherit" all LINQ functionality!
+
+- azure msal adalah library yg digunakan sebagai authentication ke beberapa service seperti azure, microsoft, facebook dll. `azure browser` adalah basis dari `azure react`
+`Msal Basic` ➡️ https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser#msal-basics
+
