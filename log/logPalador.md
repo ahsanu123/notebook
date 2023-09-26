@@ -739,3 +739,6 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 ## 26 September 2023
 - Ienumerable adalah interface yg dapat membuat sebuah class/variable dapat di _iterate_, Ienumerable memiliki method `getEnumerator()`
 - Ienumerator adalah interface yg membuat class/variable dapat di iterate (memberikan sebuah object untuk melakukan iterasi), Ienumerator memiliki method `Reset(),Current(),MoveNext()`
+- `IEnumerable<T>` contains a single method that you must implement when implementing this interface; `GetEnumerator`, which returns an `IEnumerator<T>`
+- **Arrays in c# by default** implement IEnumerable<T> where T is the member type of array.
+- The IEnumerable<T> interface is central to LINQ. All LINQ methods are extension methods to the IEnumerable<T> interface. **That means that you can call any LINQ method on any object that implements IEnumerable<T>**. You can even create your own classes that implement IEnumerable<T>, and those classes will instantly "inherit" all LINQ functionality!
