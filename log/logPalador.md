@@ -735,3 +735,7 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 - azure msal node (Azure  authentication library) github repo: https://github.com/AzureAD/microsoft-authentication-library-for-js
 - azure identity(provide Token Authentication, Token Credential from Azure active directory / AD) : https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity
 - azure keyvault (provide cloud keys, secret and certificate): https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault
+
+## 26 September 2023
+- Ienumerable adalah interface yg dapat membuat sebuah class/variable dapat di _iterate_, Ienumerable memiliki method `getEnumerator()`
+- Ienumerator adalah interface yg membuat class/variable dapat di iterate (memberikan sebuah object untuk melakukan iterasi), Ienumerator memiliki method `Reset(),Current(),MoveNext()`
