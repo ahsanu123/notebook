@@ -748,3 +748,12 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 - azure msal adalah library yg digunakan sebagai authentication ke beberapa service seperti azure, microsoft, facebook dll. `azure browser` adalah basis dari `azure react`
 `Msal Basic` ➡️ https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser#msal-basics
 
+### Note tentang Authentication dan authorization dari frontend
+1. pada `index.tsx` terdapat sebuah fungsi yg digunakan untuk mendapatkan sebuah instance dari `msal` library, menurut dokumentasi azure untuk menggunakan `msal-browser` perlu melakukan instansiasi `PublicClientAplication`. instantiasi dari `PublicClientApplication` terdapat pada fungsi dari `const msalInstance` yg berada pada `index.tsx`.
+2. hasil instance tadi dimasukan ke parameter `MsalProvider{instance}` menurut dokumentasi dari `azure msal` MsalProvider digunakan sebagai `MSAL context provider component. This must be rendered above any other components that use MSAL.`
+3. lalu terdapat `AppStoreProvide`, disini appstore provide mennyediakan context **store** dari `AppStoreContext` yg menyediakan model (menggunakan Mobx) **dan** store yg di-provide oleh `AppStoreProvider` menggunakan fungsi `useLocalObservable`, sehingga ketika salah satu object yg berada dalam `AppStoreContext` berubah secara otomatis `observer` akan di-notify
+4. dibawah `AppStoreProvider` terdapat `MsalAuthenticationTemplate` yg digunakan untuk meng-authentikasi user apabila belum ter-authentikasi, seperti yg dijelaskan pada dokumentasinya [Attempts to authenticate user if not already authenticated, then renders child components](https://azuread.github.io/microsoft-authentication-library-for-js/ref/functions/_azure_msal_react.MsalAuthenticationTemplate.html)
+5. setelah `MsalAuthenticationTemplate` terdapat `BrowserRoute`,
+6. terakhir terdapat `App` disini App memiliki banyak `Routes` tergantung dari page yang dijelajahi user.
+7. pada `App`, di useeffect react akan meminta request accestoken ke server berdasarkan akun yg telah di **authentifikasi** dari **msal**. ketika user benar ter-authentikasi dan ter-authorisasi, app akan menggunakan switch dari router.
+8. 
