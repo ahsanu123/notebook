@@ -757,3 +757,9 @@ command generate plantuml: `java -jar %PLANTUMLDIR%\plantuml.jar include.puml -t
 6. terakhir terdapat `App` disini App memiliki banyak `Routes` tergantung dari page yang dijelajahi user.
 7. pada `App`, di useeffect react akan meminta request accestoken ke server berdasarkan akun yg telah di **authentifikasi** dari **msal**. ketika user benar ter-authentikasi dan ter-authorisasi, app akan menggunakan switch dari router.
 8. 
+
+## 2 oktober 2023
+- decorator in typescript: https://mirone.me/a-complete-guide-to-typescript-decorator/
+
+
+
