@@ -20,7 +20,7 @@ to integrate zendesk `messenger` with our web, we can use `window.zE` function f
 
 ```javascript
 zE("messenger", "loginUser", function (callback) {
-  callback("generate jwt from backend");
+  callback("generated jwt from backend");
 })
 ```
 
