@@ -32,7 +32,7 @@ all other web widget api can found in: https://developer.zendesk.com/api-referen
 we can acces automated reply and AI setting from `Admin Center -> Channels -> Bot and Automation` then we can choose `Conversation bot` or `Autoreply`
 
 ## Give Dasboard Access to other people 
-to give dasboard access for another people, we can give access from `Admin center -> People -> Team Members` then on right-top-corner we hit `Add Team Member button`, zendesk will ask for email and role for new team member.
+to give dasboard access for another people, we can give access from `Admin center -> People -> Team Members` then on right-top-corner we hit `Add Team Member` button, zendesk will ask for email and role for new team member.
 
 ## Dasboard Usage 
 
