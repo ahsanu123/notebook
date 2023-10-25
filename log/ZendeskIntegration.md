@@ -27,6 +27,7 @@ zE("messenger", "loginUser", function (callback) {
 or we can custom button to open `messenger` window with `zE('messenger', 'show');`
 
 all other web widget api can found in: https://developer.zendesk.com/api-reference/widget-messaging/introduction/
+**TODO:** have tried but it hasn't worked
 
 ## How to Setup Automated Reply
 we can acces automated reply and AI setting from `Admin Center -> Channels -> Bot and Automation` then we can choose `Conversation bot` or `Autoreply`.
@@ -46,12 +47,10 @@ we can acces automated reply and AI setting from `Admin Center -> Channels -> Bo
   ![image](https://github.com/ahsanu123/learnNote/assets/81602442/0cd56ea2-669d-499f-b0e0-4896b0b00798)  
 
 
-- Autoreply
-
 ## Give Dasboard Access to other people 
 to give dasboard access for another people, we can give access from `Admin center -> People -> Team Members` then on right-top-corner we hit `Add Team Member` button, zendesk will ask for email and role for new team member.
 
 ## Dasboard Usage 
-
-**TODO:**
+dasboard can accesed from `https://{subdomain}.zendesk.com/agent/dashboard` 
+![image](https://github.com/ahsanu123/learnNote/assets/81602442/94f4e446-3a41-489c-afd6-d4ce9a8f2f81)
 
