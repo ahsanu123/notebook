@@ -1,0 +1,61 @@
+
+
+\graphicspath{{./img/}}
+
+\section{Maintaineable Code With SOLID Concept}
+
+\subsection{Single Responsibilities Principle}
+pecah fungsi ke beberapa method, jangan buat seluruh fungsi dalam 1 method
+
+
+
+
+
+\subsection{Open Close Principle}
+gunakan interface untuk membuat object yang memiliki method yang sama. 
+
+\subsection{Liskov Subtitution Principle}
+menurut barbara liskov pada presentasinya di konferensi \textit{Data Abstraction and Hierarchy}
+setiap object dari subtype harus \textit{suitable} dan dapat bekerja denga superclassnya
+hal ini disebutnya sebagai \textit{Liskov Subtitution Principle}. 
+salah satu cara untuk menghindari \textit{Liskov Subtitution Principle} atau LSP
+adalah dengan menggunakan prinsip \textit{Interface} dibandingkan menggunakan \textit{Inheritance}
+
+\subsection{The Interface Segregation Principle}
+dalam ISP atau interface segregation Principle, jangan gunakan method atau variable yang tidak diperlukan dalam class, 
+dalam C\# dapat digunakan \textit{Inheritance of Interface}.
+
+\begin{lstlisting}
+
+  public interface ITwoDeeShape {
+    public double Width{get; set;}
+    public double Height{get; set;}
+  }
+
+  public class SquareISP : ITwoDeeShape{
+    // implement all interface 
+  }
+
+  public interface IThreeDeeShape : ITwoDeeShape{
+    // add new properties to our new interface
+    public double Depth{get; set;}
+  }
+
+\end{lstlisting}
+
+
+\subsection{Dependencies Inversion Principle}
+\begin{itemize}
+  \item High-level classes or modules should not depend on low-level classes or modules and both should depend on abstractions.
+  \item Abstractions should not depend on implementation details but instead details should depend upon abstractions.
+\end{itemize}
+
+
+\section{Getting Creative With Creational Pattern}
+
+\subsection{Factory Method Pattern}
+
+
+
+
+

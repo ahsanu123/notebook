@@ -1,0 +1,117 @@
+\raphicspath{{./img/}}
+
+\begin{document}
+
+%=========================
+% Add A logo
+%=========================
+
+\section{MOSFET [rashid]}
+
+mosfet adalah device unipolar, dengan arus bergantung pada majority carrier. arus mosfet dapat di kendalikan
+dengan menggunakan medan elektrik. MOSFET dibagi menjadi 2 mode Enhancement dan Depletion mode. setiap mode mosfet dibagi 
+2 tipe, yaitu NMOS dan PMOS.
+
+\Figure[width=10cm, caption={fuck you MOSFET}, placement=h]{galirMosfet}
+
+\subsubsection{NMOS Enhancement}
+\Figure[width=14cm, caption={NMOS Structure and Symbol}, placement=h]{nmosStructure}
+simbol NMOS terlihat pada gambar 2.c, simbol tersebut dapat di singkat menjadi gambar 2.d [abbreviated] (!arah panah yang berkebalikan)
+NMOS bekerja dengan tegangan postif.
+
+\subsubsection{PMOS Enhancement}
+\Figure[width=14cm, caption={PMOS Structure and Symbol}, placement=h]{pmosStructure}
+simbol PMOS terlihat pada gambar 3.c, simbol tersebut dapat disingkat atau disederhanakan seperti gambar 3.d. 
+PMOS bekerja dengan tegangan negatif
+
+\subsection{Operation Mode}
+terdapat 3 buah mode operasi pada mosfet, yaitu cutoff region, ohmic region (terbagi menjadi 2 yaitu linear dan nonlinear),
+dan saturation region. cutoff region terjadi ketika $0 <= VGS < VT$, dimode ini mosfet seperti 2 buah dioda yang terpasang 
+berkebalikan. 
+
+region operation ke-2 yaitu Linear region, pada buku [rashid] linear mode dibagi menjadi 2 yaitu 
+linear ohmic region dan nonlinear ohmic region,\textbf{linear ohmic region terjadi ketika. } 
+
+\begin{gather}
+  VGS > VT  \\
+  0 < VGS << (VGS-VT)  
+\end{gather}
+
+ketika $VGS > VT $ namun nilai tegangan $0< VDS< (VGS - VT)$, mosfet berada dalam kondisi nonlinear
+ohmic region.
+
+region operation ke 3 yaitu \textbf{saturation region}, saturaion region terjadi ketika $VGS > VT$ dan 
+$VDS > (VGS - VT)$. berikut bias menggunakan tegangan DC.
+
+
+\Figure[width=12cm, caption={DC bias MOSFET}, placement=h]{dcBiasPmosNmos}
+
+
+\subsubsection{Cut Off Region}
+
+\subsubsection{Linear Ohmic Region}
+pada kondisi linear ohmic arus $i_D$ dapat dihitung menggunakan hukum ohm $i_D = V_{DS}/r_{DS}$. 
+konduktansi antara drain dan source dapat dihitung menggunakan.
+
+\begin{gather}
+  g_{DS} = \frac{1}{r_{DS}} = \frac{W}{L} \mu_n Q_n
+\end{gather}
+ 
+dimana :\\
+$g_{DS}$ = konduktansi channel\\
+$\mu_n$ = mobilitas elektron in reverse bias dalam oxida\\
+$Q_n$ = magnitude reverse bias layer\\
+$W$ = channel Width\\
+$L$ = channel length\\
+
+
+\subsubsection{Nonlinear Ohmic Region}
+pada nonlinear ohmic region $i_D$ dapat dihitung menggunakan persamaan dibawah ini
+
+\begin{gather}
+  i_D = \frac{K_m}{2} (2(VGS-VT)VDS - VDS^2)
+\end{gather}
+dimana: \\
+$K_m$ = $\frac{W}{L}$konstanta fabrikasi transistor.\\
+$K_n$ = $K_m/2$\\
+
+\Figure[width=8cm, caption={nonlinear $i_D$ vs $VDS$}, placement=h]{nonlinearOhmicRegion}
+
+rumus diatas dapat digunakan jika kondisi transistor memenuhi persamaan dibawah ini.
+
+\begin{gather}
+  VGS > VT \\
+  VDS < (VGS-VT)
+\end{gather}
+
+\subsubsection{Saturation Region}
+operation region yang terakhir adalah saturation region. pada daerah ini kenaikan $i_D$ tidak lagi signifikan
+(mengalami \textit{saturation}). dengan menurunkan persamaan nonlinear ohmic region dan men-samadengankan dengan 0
+didapatkan persamaan $i_D$ pada mode saturation region sebagai berikut. 
+
+\begin{gather}
+  \frac{di_D}{dV_{DS}} = \frac{K_n d}{dV_{DS}}[2 (v_{DS} - V_t) V_{DS} - V_{DS}^2] = 0 \\
+  i_D = K_n (VGS - VT)^2
+\end{gather}
+diamana:\\
+$K_n$ = $K_m/2$ = $W/L2$ = konstanta fabrikasi mosfet \\
+$VT$ = thershold voltage = tegangan threshold \\ 
+
+
+\subsubsection{Output dan Transfer karakteristik}
+ketika berada dalam kondisi cutoff, drain dan source mosfet seperti dua buah dioda yang dipasang berkebalikan.
+
+
+ketika berada dalam linear region mosfet seperti sebuah resistor yang hambatannya diatur oleh tegangan gate.
+$VGS > VT$ dan $VDS < (VGS-VT)$
+\begin{gather} 
+  i_D = \frac{K_m}{2} (2(VGS-VT)VDS - VDS^2)
+\end{gather}
+
+ketika berada dalam saturation region. $VGS > VT$ dan $VDS > (VGS-VT)$
+\begin{gather}
+  i_D = K_n (VGS-VT)^2
+\end{gather}
+
+\end{document}
+
