@@ -6,4 +6,5 @@
 
 * Kotlin In Action Second Edition, page 192 **lambda expression **
 
-![](assets/gj2OYYvDteo7lVuOh8N-rhR-siSBC7DaqusAV6o7q3Y=.blob)
+![](assets/gUN01TNV2KJPJPWMkDB031RVYQ4WVRBVyfdJ5ENy44g=.blob)
+
