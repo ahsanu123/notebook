@@ -4,3 +4,7 @@
  - https://mobx.js.org/react-integration.html
  - https://mobx.js.org/computeds.html
  - https://mobx.js.org/understanding-reactivity.html
+
+### 1 Agustus 2024 
+
+**Todo:** read this induction [heater diy blog](https://highvoltageforum.net/index.php?topic=116.0)
