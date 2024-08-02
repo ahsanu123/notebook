@@ -5,7 +5,12 @@
  - https://mobx.js.org/computeds.html
  - https://mobx.js.org/understanding-reactivity.html
 
-### 1 Agustus 2024 
+### ✍️ 1 Agustus 2024 
 
 **Todo:** read this induction [heater diy blog](https://highvoltageforum.net/index.php?topic=116.0)
 - also this https://www.open-electronics.org/an-open-project-for-a-1-000w-induction-heather/
+
+### 🍞 2 Agustus 2024 
+
+**Last Note**
+- reading Blocksuite Framework Documentation [Selecting Blocks](https://blocksuite.io/guide/working-with-block-tree.html#selecting-blocks) 
