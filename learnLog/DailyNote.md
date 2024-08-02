@@ -13,4 +13,5 @@
 ### 🍞 2 Agustus 2024 
 
 **Last Note**
-- reading Blocksuite Framework Documentation [Selecting Blocks](https://blocksuite.io/guide/working-with-block-tree.html#selecting-blocks) 
+- reading Blocksuite Framework Documentation [Selecting Blocks](https://blocksuite.io/guide/working-with-block-tree.html#selecting-blocks)
+- update reading blocksuite doc framework: https://blocksuite.io/guide/block-schema.html#block-schema
