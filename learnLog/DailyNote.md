@@ -15,3 +15,8 @@
 **Last Note**
 - reading Blocksuite Framework Documentation [Selecting Blocks](https://blocksuite.io/guide/working-with-block-tree.html#selecting-blocks)
 - update reading blocksuite doc framework: https://blocksuite.io/guide/block-schema.html#block-schema
+
+### 🍞 25 Agustus 2024 
+
+**Last Note**
+- read ChibiOS documentation: last read [RT Threading](https://www.chibios.org/dokuwiki/doku.php?id=chibios:documentation:books:rt:kernel_threading)
