@@ -20,3 +20,6 @@
 
 **Last Note**
 - read ChibiOS documentation: last read [RT Threading](https://www.chibios.org/dokuwiki/doku.php?id=chibios:documentation:books:rt:kernel_threading)
+
+### 🍞 07 Oktober 2024 
+- reading Professional C# and Dotnet - Completing the WhatsNewAttributes Example, page 368 (pdf page number)
