@@ -1,0 +1,3 @@
+# compile to pdf file
+cpdf typstFile: 
+  typst compile {{typstFile}} output.pdf -f pdf   

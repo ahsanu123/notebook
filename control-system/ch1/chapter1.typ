@@ -64,7 +64,7 @@ $ G(S) = LL(O_"output") / LL(I_"input") \
 orde sistem dapat ditentukan dengan melihat pangkat tertinggi dari $S$ jika $S$ memiliki pangkat tertinggi $n$
 maka sistem tersebut ber-order $n$.
 
-=== Convolution Integral
+== Convolution Integral
 
 $ GG(SS) = YY(SS) / XX(SS) $ 
 
@@ -78,7 +78,7 @@ sehingga
 $ y(t) = integral_0 ^t x(tau) g(t - tau) d tau $
 
 
-=== Impulse Response
+== Impulse Response
 
 sebuah sistem LTI dengan zero intial condition, diberi input impulse. karena laplace transform dari impulse
 adalah satu(*unity*), maka laplace transform dari output tersebut dapat ditulis sebagai berikut.
@@ -88,7 +88,7 @@ $  YY(SS) = GG(SS) XX(SS) = GG(SS) 1 YY(SS) = GG(SS) $
 sehingga dengan menggunakan impulse dan mengukur output sebuah sistem dapat ditentukan karakteristik dari 
 sistem tersebut (transfer functionnya).
 
-=== Block Diagram
+== Block Diagram
 
 untuk merepresentasikan sistem dalam bentuk grafik, dapat digunakan block diagram.
 
@@ -96,7 +96,7 @@ untuk merepresentasikan sistem dalam bentuk grafik, dapat digunakan block diagra
 
 open loop control system $G(S) = C(S)/R(S)$
 
-=== Close Loop Control System
+== Close Loop Control System
 
 #figWithImg("../img/closeloopDiagram.JPG", caption: "close loop control system")
 
@@ -113,7 +113,7 @@ $ C(S)/R(S) = G(S) / (1 + G(S)H(S)) $
 
 sehingga output dari close loop sistem hanya bergantung pada input dan close loop transfer function saja.
 
-=== Automatic Control System
+== Automatic Control System
 
 sebuah automatic control controller membandingkan output dengan nilai input, lalu menentukan error/deviasi 
 dan menghasilkan sinyal control untuk mengurangi/memperkecil error hingga 0.
