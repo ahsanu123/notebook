@@ -14,7 +14,7 @@
       Thank you for using this template #emoji.heart,\ I hope you like it #emoji.face.smile
     ]
   ],
-  bibliography: bibliography("refs.bib"),
+  bibliography: bibliography("./bibs/refs.bib"),
   figure-index: (enabled: true),
   table-index: (enabled: true),
   listing-index: (enabled: true),

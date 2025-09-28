@@ -9,8 +9,6 @@
 #show: lq.set-grid(stroke: none)
 
 #lq.diagram(
-  width: 14cm, 
-  height: 7cm,
   ylim: (0, 2),
   margin: (x: 2%),
 
@@ -22,7 +20,7 @@
     60%, 100% - 1.2em, 
     align: bottom,
     lq.diagram(
-      width: 5.4cm, height: 2cm, 
+      width: 2cm, height: 1cm, 
       margin: 0%,
       ylim: (1.5, 1.8),
       fill: white,
