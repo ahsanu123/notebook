@@ -2,5 +2,4 @@
 #include "toc.typ"
 
 #include "ch1/chapter1.typ"
-#include "ch1/layout.typ"
 
