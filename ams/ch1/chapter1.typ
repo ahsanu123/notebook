@@ -184,7 +184,7 @@ there is 1 default price, admin able to update price but unable to delete, price
   _par(API)
 
   _note("over", [admin click\ dreg price button], pos: (admin))
-  _seq(admin, adminPage, comment: [diplay edit\ dreg price component])
+  _seq(adminPage, admin, comment: [diplay edit\ dreg price component])
   _seq(admin, adminPage, comment: [admin enter\ new price])
 
   _alt([updated price is different],{
@@ -208,12 +208,12 @@ there is 1 default price, admin able to update price but unable to delete, price
   _par(API)
   _note("over", [admin click\ list dreg price button], pos: (admin))
 
-  _seq(admin, adminPage, comment: [diplay list\ dreg price component])
+  _seq(admin, adminPage, comment: [admin click\ list dreg price button])
   _seq(adminPage, API, comment: [get all dreg price])
   _seq(API, API, comment: [retrieve data from db])
   _seq(API, adminPage, comment: [return prices data])
 
-  _seq( API, admin, comment: [give control\ back to admin])
+  _seq(adminPage, admin, comment: [give control\ back to admin])
 })
 
 #pagebreak()
