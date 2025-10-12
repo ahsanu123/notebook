@@ -297,3 +297,55 @@ there is 1 default price, admin able to update price but unable to delete, price
 
   _seq(paymentPage, admin, comment: [give control\ back to admin])
 })
+
+== Make Payment Flow 
+
+#chronos.diagram({
+  import chronos: *
+
+  _par(admin)
+  _par(customer)
+  _par(paymentPage)
+  _par(paymentPageState)
+  _par(mainPagestate)
+  _par(API)
+
+  _seq(customer, admin, comment: [customer make\ request to admin])
+  _seq(admin, paymentPage, comment: [admin open payment Page])
+  _seq(admin, paymentPage, comment: [admin select user ])
+
+  _seq(paymentPage, API, comment: [request user taking\ record for this month])
+  _seq(API, API, comment: [retrive data\ from database by\ user id and date (month)])
+  _seq(API, paymentPage, comment: [return records])
+  _seq(paymentPage, paymentPageState, comment: [save taking\ records to state])
+
+  _seq(paymentPage, paymentPage, comment: [display records])
+
+  _note("over", [continue to next page], pos: (admin), color: blue)
+})
+
+#pagebreak()
+
+#chronos.diagram({
+  import chronos: *
+
+  _par(admin)
+  _par(customer)
+  _par(paymentPage)
+  _par(paymentPageState)
+  _par(mainPagestate)
+  _par(API)
+
+  _note("over", [component is checkboxable\ there is option to select \*\ from current month\ but in general admin able to\ select date range ], pos: (admin))
+  _seq(admin, paymentPage, comment: [admin select,\ from and to\ date for set to be paid])
+  _seq(admin, paymentPage, comment: [admin click on pay button])
+
+  _seq(paymentPage, API, comment: [make payment request\ with date from and date to ])
+  _seq(API, API, comment: [insert to payment history ])
+  _seq(API, API, comment: [substract customer money])
+  _seq(API, API, comment: [insert to cusomer money history])
+
+  _seq(API, paymentPage, comment: [return updated\ taking record data\ (already paid)])
+  _seq(paymentPage, paymentPage, comment: [display updated records])
+})
+
